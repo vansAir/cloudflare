@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>zzZ | Node Identity</title>
+<style>
+  :root {
+    --bg-color: #070707;
+    --text-main: #00ea00;
+    --text-muted: #555;
+    --accent: #00aa00;
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .node-panel {
+    border: 1px solid var(--accent);
+    padding: 2.5rem;
+    position: relative;
+    width: 350px;
+    box-shadow: inset 0 0 20px rgba(0, 234, 0, 0.05);
+  }
+
+  /* 边框四角的极客修饰 */
+  .node-panel::before, .node-panel::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--text-main);
+  }
+  .node-panel::before { top: -5px; left: -5px; border-right: none; border-bottom: none; }
+  .node-panel::after { bottom: -5px; right: -5px; border-left: none; border-top: none; }
+
+  .panel-header {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background-color: var(--bg-color);
+    padding: 0 10px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  .data-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    border-bottom: 1px dotted #222;
+    padding-bottom: 5px;
+  }
+
+  .label { color: var(--text-muted); }
+  
+  .value { font-weight: bold; }
+
+  .quote {
+    margin-top: 30px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: right;
+    font-style: italic;
+  }
+
+  /* 轻微的文字闪烁故障效果 */
+  .glitch {
+    animation: glitch-skew 2s infinite linear alternate-reverse;
+  }
+  @keyframes glitch-skew {
+    0% { transform: skew(0deg); }
+    90% { transform: skew(0deg); }
+    95% { transform: skew(5deg); }
+    100% { transform: skew(-5deg); }
+  }
+
+  .blink {
+    animation: blinker 1.5s linear infinite;
+  }
+  @keyframes blinker {
+    50% { opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="node-panel">
+    <div class="panel-header">SYS.INIT_PROFILE</div>
+    
+    <div class="data-row">
+      <span class="label">ID:</span>
+      <span class="value glitch">zzZ</span>
+    </div>
+    
+    <div class="data-row">
+      <span class="label">STATUS:</span>
+      <span class="value"><span class="blink">●</span> ONLINE</span>
+    </div>
+    
+    <div class="data-row">
+      <span class="label">ENGINE:</span>
+      <span class="value">Rust / Solidity</span>
+    </div>
+    
+    <div class="data-row">
+      <span class="label">ARCHITECTURE:</span>
+      <span class="value">Data-Driven</span>
+    </div>
+
+    <div class="quote">
+      "Code is law."<br>
+      -- The Web3 Ethos
+    </div>
+  </div>
+
+</body>
+</html>
